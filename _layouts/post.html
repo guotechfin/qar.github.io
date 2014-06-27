@@ -4,10 +4,14 @@ layout: pages
 
 <div class="post">
   <h1 class="title">{{ page.title }}</h1>
-  <ul class="meta">
-    <li class="timestamp">{{ page.date | date_to_long_string }}</li>
-    <li class="category">{{ page.categories | join('.') }}</li>
-  </ul>
+
+  <small class="meta">
+    <span class="timestamp">{{ page.date | date_to_long_string }}</span>
+    {% for cate in page.categories %}
+    <span class="category">{{ cate }}</span>
+    {% endfor %}
+  </small>
+
   <div class="content">
     {{ content }}
   </div>
