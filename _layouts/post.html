@@ -5,10 +5,10 @@ layout: pages
 <div class="post">
   <h1 class="title">{{ page.title }}</h1>
   <ul class="meta">
-    <li class="timestamp">{{ page.date | date_to_string }}</li>
-    <li class="category">无厘头</li>
+    <li class="timestamp">{{ page.date | date_to_long_string }}</li>
+    <li class="category">{{ page.categories | join('.') }}</li>
   </ul>
-  <p class="content">
+  <div class="content">
     {{ content }}
-  </p>
+  </div>
 </div>

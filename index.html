@@ -5,6 +5,13 @@ title: Anran's Life
 
 {% for post in site.posts %}
  <div class="item">
-   <h2><a href="{{ post.url }}">{{ post.title }}<a></h2>
+   <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+   <ul class="meta">
+     <li class="timestamp">{{ post.date | date_to_long_string }}</li>
+     <li class="category">{{ post.categories | join('.') }}</li>
+     <li class="tags">{{ post.tags | sort}}</li>
+   </ul>
+   <p class="content">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+   <a class="whole-article-promote" href="{{ post.url }}">阅读全文</a>
  </div>
 {% endfor %}

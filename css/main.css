@@ -53,16 +53,72 @@ body {
 #main .item {
   float: left;
   width: 100%;
-  height: 20%;
+  min-height: 20%;
+  height: auto;
   border-bottom: 1px solid silver;
   box-sizing: border-box;
+  padding-left: 5%;
+  padding-bottom: 2%;
+  font-family: 'Helvetica';
 }
 
 .item h2 {
-  margin-left: 8%;
+  text-align: left;
+  vertical-align: middle;
+  margin-left: 0;
   font-weight: normal;
-  position: relative;
-  top: 25%;
+  width: 100%;
+  height: 30px;
+}
+
+ul.meta {
+  list-style: none;
+  width: 100%;
+  float: left;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+ul.meta li {
+  float: left;
+}
+
+.content {
+  float: left;
+  font-size: 1.1em;
+  color: rgb(37, 37, 37);
+  font-family: "Helvetica";
+  font-weight: lighter;
+}
+p > code {
+  display: inline-block;
+  background: rgb(63, 146, 253);;
+  border-radius: 3px;
+  width: auto;
+  padding: 1px 6px 3px 6px;
+  height: auto;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+
+}
+.item .whole-article-promote {
+  font-style: italic;
+  color: blue;
+  text-decoration: none;
+}
+.item .whole-article-promote:hover {
+  text-decoration: underline;
+}
+
+.meta .timestamp {
+  font-style: italic;
+  margin-right: 10px;
+}
+.item h2 a {
+  color: inherit;
+  text-decoration: none;
 }
 
 #main .post {
@@ -80,8 +136,7 @@ body {
 .post ul.meta {
   float: left;
   width: 100%;
-  background: pink;
-  height: 50px;
+  height: auto;
   margin-top: 0;
   list-style: none;
 }
@@ -90,8 +145,18 @@ body {
   float: left;
 }
 
-
-
 .item h3:hover {
   cursor: pointer;
+}
+
+#navbar ul a {
+  color: white;
+  text-decoration: none;
+}
+#navbar ul a:visited {
+  color: white;
+}
+
+#navbar ul a:hover {
+  text-decoration: none; 
 }
