@@ -17,6 +17,10 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
 .title {
   color: #565656;
 }
@@ -150,6 +154,7 @@ p > code {
 }
 
 #main .post {
+  position: relative;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -173,4 +178,57 @@ p > code {
   border-bottom: 1px solid gray;
   color: gray;
   font-weight: 100;
+}
+
+.post-nav {
+  width: 100%;
+  height: 80px;
+  float: left;
+  
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin:0;
+  padding: 0;
+}
+
+.post-nav li {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: white;
+  padding-top: 0.8em;
+  border-top: 1px solid #eee;;
+  opacity: 0.8;
+  box-sizing: border-box;
+  -webkit-transition: all 0.15s ease-in-out;
+}
+.post-nav li:hover {
+  color: white;
+  opacity: 1;
+  background:rgb(31, 189, 202) ;
+  -webkit-transition: all 0.15s ease-in-out;
+}
+.post-nav li:hover .title {
+  color: white;
+  -webkit-transition: all 0.15s ease-in-out;
+}
+
+.post-nav small {
+  font-style: italic;
+  font-size: 0.8em;
+  display: block;
+  width: 100%;
+}
+.post-nav .previous, 
+.post-nav .next {
+  font-size: 1.1em;    
+}
+.post-nav .previous {
+  text-align: left;
+  padding-left: 2em; 
+}
+.post-nav .next {
+  text-align: right;
+  padding-right: 2em;  
 }
