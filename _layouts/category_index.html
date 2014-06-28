@@ -3,8 +3,11 @@ layout: pages
 title: Anran's Life
 ---
 
+<div class="page-brand">
+  Posts of category {{ page.category }}
+</div>
 <ul id="items">
-{% for post in site.posts %}
+{% for post in site.categories.[page.category] %}
   <li> 
     <a href="{{ post.url }}">
       <h2 class="title">{{ post.title }}</h2>

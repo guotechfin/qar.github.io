@@ -160,3 +160,17 @@ p > code {
 .post .title {
   font-weight: normal;
 }
+
+.page-brand {
+  width: 100%;
+  float: left;
+  height: 80px;
+  line-height: 80px;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 2em;
+  padding-left: 2%;
+  border-bottom: 1px solid gray;
+  color: gray;
+  font-weight: 100;
+}
