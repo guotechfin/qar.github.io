@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>You're Lost</title>
+  <style type="text/css">
+    body {
+      height: 100%;
+      width: 100%;
+      background: #F6F2E8;
+      overflow: hidden;
+    }
+
+    #game {
+      margin: 0 auto;
+    }
+
+    .block {
+      background-image: url('/img/404.jpg');
+    }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <script src="/js/n-puzzle.js"></script>
+  <script>
+    (function () {
+       NPuzzle({
+        'id': 'game',
+        'blend': 1000
+      }); 
+    })();
+
+  </script>
+</body>
+</html>
