@@ -1,0 +1,47 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: #EEEEEE;
+  
+  margin:0;
+  padding: 0;
+
+  position: relative;
+}
+
+.board {
+  min-height: 70px;
+  height: auto !important;
+  width: 200px;
+  padding: 5px;
+  position: absolute; 
+}
+
+/* show the topbar only if it is focused */
+.board:focus:before {
+  content: '';
+  display: block;
+  height: 20px;
+  width: 100%;
+  background: #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+
+  cursor: pointer;
+  position: absolute;
+  top: -20px;
+  left: -1px;
+}
+
+.board:before:hover {
+  cursor: pointer;
+}
+.board:focus {
+  border: 1px solid #BBB;
+  outline: none;
+}
