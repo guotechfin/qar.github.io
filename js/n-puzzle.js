@@ -11,8 +11,8 @@ function NPuzzle (puzzleOptions) {
   // Get puzzle game container
   var GameEle = document.getElementById(puzzleOptions.id);
   GameEle.style['position'] = 'relative';
-  GameEle.style['width'] = '600px';
-  GameEle.style['height'] = '600px';
+  GameEle.style['width'] = puzzleOptions.width ? puzzleOptions.width.toString() + 'px' : '360px';
+  GameEle.style['height'] = puzzleOptions.width ? puzzleOptions.width.toString() + 'px' : '360px';
   GameEle.style['background'] = 'white';
 
   puzzle.height = GameEle.offsetHeight;
@@ -105,6 +105,10 @@ function NPuzzle (puzzleOptions) {
       for (var i=0; i<GameEle.childElementCount; i++) {
         var block = GameEle.childNodes[i];
         block.style['-webkit-transition'] = 'left 0.2s, top 0.2s';
+        block.style['-moz-transition'] = 'left 0.2s, top 0.2s';
+        block.style['-o-transition'] = 'left 0.2s, top 0.2s';
+        block.style['-ms-transition'] = 'left 0.2s, top 0.2s';
+        block.style['transition'] = 'left 0.2s, top 0.2s';
       }
     }
   };
