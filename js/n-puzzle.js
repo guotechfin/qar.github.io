@@ -102,7 +102,7 @@ function NPuzzle (puzzleOptions) {
         disOrder();
     } else {
       /** Add animation */
-      for (var i=1; i<GameEle.childElementCount; i++) {
+      for (var i=0; i<GameEle.childElementCount; i++) {
         var block = GameEle.childNodes[i];
         block.style['-webkit-transition'] = 'left 0.2s, top 0.2s';
       }
@@ -318,3 +318,4 @@ function NPuzzle (puzzleOptions) {
 
   puzzle.bootStrap(); // !!
 }
+
