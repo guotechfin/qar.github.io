@@ -1,3 +1,27 @@
+---
+---
+
+// Font
+$bodyfont : serif;
+
+// Color
+$title-color: #565656;
+
+// Mixins
+@mixin linear-gradient($angle, $fromColor, $toColor) {
+  background: -webkit-linear-gradient($angle, $fromColor, $toColor);
+  background:    -moz-linear-gradient($angle, $fromColor, $toColor);
+  background:      -o-linear-gradient($angle, $fromColor, $toColor);
+  background:         linear-gradient($angle, $fromColor, $toColor);
+}
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+       -moz-transition: $transition-property $transition-time $method;
+        -ms-transition: $transition-property $transition-time $method;
+         -o-transition: $transition-property $transition-time $method;
+            transition: $transition-property $transition-time $method;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -9,7 +33,7 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: serif;
+  font-family: $bodyfont;
 }
 
 a {
@@ -22,7 +46,7 @@ ul {
 }
 
 .title {
-  color: #565656;
+  color: $title-color;
 }
 
 #navbar {
@@ -31,7 +55,7 @@ ul {
   float: left;
   height: 100%;
   width: 20%;
-  background: -webkit-linear-gradient(45deg, #F500FF, #00ADFF);
+  @include linear-gradient(45deg, #F500FF, #00ADFF);
 }
 
 #main {
@@ -59,17 +83,17 @@ ul {
   text-align: right;
   width: 100%;
   height: auto;
-  color: white;
+  color: rgba(255, 255, 255, 0.6);
   font-family: 'Helvetica';
   font-size: 1.2em;
-  opacity: 0.6;
-  text-shadow: none;
-  -webkit-transition: all 0.2s ease-in-out;
+  text-shadow: 0 0 gray, 0 0 gray;
+  @include transition(all, 0.2s, ease-in-out);
 }
+
 #navbar .nav li:hover {
-  opacity: 1;
+  color: rgba(255, 255, 255, 1);
   text-shadow: 1px 1px gray, 2px 2px gray;
-  -webkit-transition: all 0.2s ease-in-out;
+  @include transition(all, 0.2s, ease-in-out);
 }
 
 #main .meta {
@@ -105,15 +129,15 @@ ul {
   z-index: -10;
   top: 0;
   left: 0;
-
-  background: -webkit-linear-gradient(30deg, #F5F6ED, #cdf5ff);
   opacity: 0;
-  -webkit-transition: all 0.15s ease-in-out;
+
+  @include linear-gradient(30deg, #F5F6ED, #cdf5ff);
+  @include transition(all, 0.2s, ease-in-out);
 }
 #items li:hover:before {
   opacity: 1;
   cursor: pointer;
-  -webkit-transition: all 0.15s ease-in-out;
+  @include transition(all, 0.2s, ease-in-out);
 }
 #items li h2 {
   height: 100%;
@@ -201,17 +225,17 @@ p > code {
   border-top: 1px solid #eee;;
   opacity: 0.8;
   box-sizing: border-box;
-  -webkit-transition: all 0.15s ease-in-out;
+  @include transition(all, 0.2s, ease-in-out);
 }
 .post-nav li:hover {
   color: white;
   opacity: 1;
   background:rgb(31, 189, 202) ;
-  -webkit-transition: all 0.15s ease-in-out;
+  @include transition(all, 0.2s, ease-in-out);
 }
 .post-nav li:hover .title {
   color: white;
-  -webkit-transition: all 0.15s ease-in-out;
+  @include transition(all, 0.2s, ease-in-out);
 }
 
 .post-nav small {

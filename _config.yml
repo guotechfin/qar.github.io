@@ -2,3 +2,15 @@ name: Anran's Life
 markdown: redcarpet
 pygments: true
 safe: false
+
+# SASS configuration - Jekyll 2.0 or Highter Only
+sass:
+  sass_dir: _sass
+
+  style: compressed
+  # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  #  - nested：嵌套缩进的css代码，它是默认值
+  #  - expanded：没有缩进的、扩展的css代码
+  #  - compact：简洁格式的css代码
+  #  - compressed：压缩后的css代码
+
