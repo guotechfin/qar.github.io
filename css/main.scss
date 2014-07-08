@@ -49,8 +49,18 @@ ul {
   color: $title-color;
 }
 
+#wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: auto;
+  padding-left: 20%;
+  box-sizing: border-box;
+}
+
 #navbar {
   position: fixed;
+  top: 0;
+  left: 0;
   margin: 0;
   float: left;
   height: 100%;
@@ -58,13 +68,27 @@ ul {
   @include linear-gradient(45deg, #F500FF, #00ADFF);
 }
 
-#main {
-  margin: 0;
+#wrapper-inner {
   float: left;
-  height: 100%;
-  width: 80%;
-  margin-left: 20%;
+  height: auto;
+  width: 100%;
+  margin-bottom: 200px;
 }
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  height: 80px;
+}
+
+//#main {
+//  margin: 0;
+//  float: left;
+//  height: 100%;
+//  width: 80%;
+//}
 
 #navbar .nav {
   float: right;
@@ -164,7 +188,10 @@ ul {
   color: rgb(37, 37, 37);
   font-family: "Helvetica";
   font-weight: lighter;
+  min-height: 100%;
+  height: auto !important;
 }
+
 p > code {
   display: inline-block;
   background: rgb(63, 146, 253);;
