@@ -90,7 +90,7 @@ ul {
 //  width: 80%;
 //}
 
-#navbar .nav {
+#navbar ul {
   float: right;
   list-style: none;
 
@@ -98,11 +98,10 @@ ul {
   height: auto;
 
   margin-right: 15%;
-  margin-top: 30%;
   box-sizing: border-box;
 }
 
-#navbar .nav li {
+#navbar ul li {
   float: right;
   text-align: right;
   width: 100%;
@@ -111,13 +110,22 @@ ul {
   font-family: 'Helvetica';
   font-size: 1.2em;
   text-shadow: 0 0 gray, 0 0 gray;
+  margin-bottom: 0.5em;
   @include transition(all, 0.2s, ease-in-out);
 }
 
-#navbar .nav li:hover {
+#navbar ul li:hover {
   color: rgba(255, 255, 255, 1);
   text-shadow: 1px 1px gray, 2px 2px gray;
   @include transition(all, 0.2s, ease-in-out);
+}
+#navbar ul.nav {
+  margin-top: 30%; 
+}
+#navbar ul.desc {
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  padding-top: 10%;
+  font-size: 0.85em;
 }
 
 #main .meta {
