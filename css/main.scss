@@ -3,6 +3,8 @@
 
 // Font
 $bodyfont : serif;
+$postFontColor: #555555;
+$postLinkColor: rgb(33, 103, 250);
 
 // Color
 $title-color: #565656;
@@ -20,6 +22,12 @@ $title-color: #565656;
         -ms-transition: $transition-property $transition-time $method;
          -o-transition: $transition-property $transition-time $method;
             transition: $transition-property $transition-time $method;
+}
+@mixin box-sizing($property) {
+  -webkit-box-sizing: $property;
+     -moz-box-sizing: $property;
+       -o-box-sizing: $property;
+          box-sizing: $property;
 }
 
 html {
@@ -54,7 +62,7 @@ ul {
   min-height: 100%;
   overflow: auto;
   padding-left: 20%;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 #navbar {
@@ -83,13 +91,6 @@ ul {
   height: 80px;
 }
 
-//#main {
-//  margin: 0;
-//  float: left;
-//  height: 100%;
-//  width: 80%;
-//}
-
 #navbar ul {
   float: right;
   list-style: none;
@@ -98,7 +99,7 @@ ul {
   height: auto;
 
   margin-right: 15%;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 #navbar ul li {
@@ -106,7 +107,7 @@ ul {
   text-align: right;
   width: 100%;
   height: auto;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.8);
   font-family: 'Helvetica';
   font-size: 1.2em;
   text-shadow: 0 0 gray, 0 0 gray;
@@ -123,7 +124,7 @@ ul {
   margin-top: 30%; 
 }
 #navbar ul.desc {
-  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
   padding-top: 10%;
   font-size: 0.85em;
 }
@@ -137,7 +138,7 @@ ul {
   list-style: none;
   width: 100%;
   height: auto;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   margin-left: 0;
   padding-left: 0;
   margin-top: 0;
@@ -219,13 +220,24 @@ p > code {
   width: 100%;
   margin: 0;
   padding: 2% 15% 0 15%;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
-.post .title {
-  font-weight: normal;
-}
+.post {
+  .title {
+    font-weight: normal;
+  }
+  .content {
+    color: $postFontColor;
+    a {
+      color: $postLinkColor;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
 
+}
 .page-brand {
   width: 100%;
   float: left;
@@ -260,7 +272,7 @@ p > code {
   padding-top: 0.8em;
   border-top: 1px solid #eee;;
   opacity: 0.8;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   @include transition(all, 0.2s, ease-in-out);
 }
 .post-nav li:hover {
