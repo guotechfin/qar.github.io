@@ -1,6 +1,6 @@
 name: Anran's Life 
 markdown: redcarpet
-pygments: true
+highlighter: pygemnts
 safe: false
 
 # SASS configuration - Jekyll 2.0 or Highter Only
@@ -14,4 +14,4 @@ sass:
   #  - compact：简洁格式的css代码
   #  - compressed：压缩后的css代码
 
-exclude: deploy.sh
+exclude: [deploy.sh,]
