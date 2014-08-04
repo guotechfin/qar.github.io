@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+cd _site &&  git checkout master
+
+cd -
 echo "Building ..."
 jekyll build
 
