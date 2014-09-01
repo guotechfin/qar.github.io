@@ -1,3 +1,6 @@
 _site
 *.swo
 *.swp
+
+# NodeJS local modules
+node_modules
