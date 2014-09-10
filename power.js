@@ -9,7 +9,6 @@ var CWD = path.resolve(__filename, '..');
 var POSTS_PATH = path.resolve(CWD, './_posts');
 
 var cmd = process.argv[2];
-console.log('DEBUG: execute command " ' + cmd + ' "');
 
 switch (cmd) {
   case 'new':

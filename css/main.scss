@@ -91,38 +91,45 @@ ul {
   height: 80px;
 }
 
-#navbar ul {
-  float: right;
-  list-style: none;
+#navbar {
+  ul {
+    list-style: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Helvetica';
+    @include box-sizing(border-box);
+  }
+  ul.nav {
+    float: right;
+    width: 100%;
+    height: auto;
+    margin-right: 15%;
+    margin-top: 30%; 
 
-  width: 100%;
-  height: auto;
+    li {
+      float: right;
+      text-align: right;
+      width: 100%;
+      height: auto;
+      font-size: 1.2em;
+      text-shadow: 0 0 gray, 0 0 gray;
+      margin-bottom: 0.5em;
+      @include transition(all, 0.2s, ease-in-out);
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 1px 1px gray, 2px 2px gray;
+        @include transition(all, 0.2s, ease-in-out);
+      }
+    }
+  }
 
-  margin-right: 15%;
-  @include box-sizing(border-box);
+  ul.footnote {
+    position: absolute;
+    text-align:center;
+    bottom: 20px;
+    right: 20px;
+  }
 }
 
-#navbar ul li {
-  float: right;
-  text-align: right;
-  width: 100%;
-  height: auto;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: 'Helvetica';
-  font-size: 1.2em;
-  text-shadow: 0 0 gray, 0 0 gray;
-  margin-bottom: 0.5em;
-  @include transition(all, 0.2s, ease-in-out);
-}
-
-#navbar ul li:hover {
-  color: rgba(255, 255, 255, 1);
-  text-shadow: 1px 1px gray, 2px 2px gray;
-  @include transition(all, 0.2s, ease-in-out);
-}
-#navbar ul.nav {
-  margin-top: 30%; 
-}
 #navbar ul.desc {
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   padding-top: 10%;
@@ -147,7 +154,7 @@ ul {
 #items li {
   position: relative;
   padding: 40px;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #EEE;
 }
 #items li:hover {
   cursor: pointer;
@@ -213,6 +220,7 @@ p > code {
   color: white;
 
 }
+
 
 #main .post {
   position: relative;
