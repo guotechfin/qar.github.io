@@ -55,17 +55,16 @@ ul {
 
 .title {
   color: $title-color;
+  @media (max-width: 960px) {
+    font-size: 1em;
+  }
 }
 
-#wrapper {
-  width: 100%;
-  min-height: 100%;
-  overflow: auto;
-  padding-left: 20%;
-  @include box-sizing(border-box);
-}
 
 #navbar {
+  @media (max-width: 960px) {
+    display: none;
+  }
   position: fixed;
   top: 0;
   left: 0;
@@ -74,24 +73,7 @@ ul {
   height: 100%;
   width: 20%;
   background-color: #08B494;
-}
 
-#wrapper-inner {
-  float: left;
-  height: auto;
-  width: 100%;
-  margin-bottom: 200px;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 80%;
-  height: 80px;
-}
-
-#navbar {
   ul {
     list-style: none;
     color: rgba(255, 255, 255, 0.8);
@@ -128,17 +110,125 @@ ul {
     bottom: 20px;
     right: 20px;
   }
+
+  ul.desc {
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    padding-top: 10%;
+    font-size: 0.85em;
+  }
 }
 
-#navbar ul.desc {
-  border-top: 1px solid rgba(255, 255, 255, 0.8);
-  padding-top: 10%;
-  font-size: 0.85em;
+#wrapper {
+  float: left;
+  width: 80%;
+  margin-left: 20%;
+  height: 100%;
+  overflow: scroll;
+  @media (max-width: 960px) {
+    width: 100%;
+    margin-left: 0;
+  }
+  @include box-sizing(border-box);
+  #wrapper-inner {
+    position: relative;
+    float: left;
+    min-height: 100%;
+    height: auto!important;
+    width: 100%;
+  }
 }
 
-#main .meta {
-  color: #9c9c9c;
+#main {
+  float: left;
+  width: 100%;
+  min-height: 100%;
+  margin-bottom: 10em;
+  .meta {
+    color: #9c9c9c;
+  }
+
+  .post {
+    float: left;
+    min-height: 100%;
+    height: auto !important;
+    width: 100%;
+    margin: 0;
+    padding: 2% 15% 0 15%;
+    @media (max-width: 960px) {
+      padding: 2% 5%;
+    }
+    @include box-sizing(border-box);
+  }
 }
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+
+  #footer-inner {
+    float:left;
+    width: 100%;
+    height: auto;
+
+    .post-nav {
+      width: 100%;
+      height: 4.6em;
+      float: left;
+      margin:0;
+      padding: 0;
+
+    li {
+      width: 50%;
+      height: 100%;
+      float: left;
+      background: white;
+      padding-top: 0.8em;
+      border-top: 1px solid #eee;;
+      opacity: 0.8;
+      @include box-sizing(border-box);
+      @include transition(all, 0.2s, ease-in-out);
+
+      &:hover {
+        color: white;
+        opacity: 1;
+        background:rgb(31, 189, 202) ;
+        @include transition(all, 0.2s, ease-in-out);
+      }
+
+      &:hover .title {
+        color: white;
+        @include transition(all, 0.2s, ease-in-out);
+      }
+    }
+    small {
+      font-style: italic;
+      font-size: 0.8em;
+      display: block;
+      width: 100%;
+    }
+    .previous, .next {
+      font-size: 1.1em;    
+    }
+    .previous {
+      text-align: left;
+      padding-left: 2em; 
+      @media (max-width: 960px) {
+        padding-left: 0;
+      }
+    }
+    .next {
+      text-align: right;
+      padding-right: 2em;  
+      @media (max-width: 960px) {
+        padding-right: 0;
+      }
+    }
+    }
+  }
+}
+
 
 #items {
   float: left;
@@ -153,7 +243,10 @@ ul {
 
 #items li {
   position: relative;
-  padding: 40px;
+  padding: 2em;
+  @media (max-width: 960px) {
+    padding: 0.5em;
+  }
   border-bottom: 1px solid #EEE;
 }
 #items li:hover {
@@ -185,17 +278,21 @@ ul {
   padding: 0;
   text-decoration: none;
 }
-.meta{
+
+.meta {
   font-style: italic;
-}
-.meta:hover {
-  pointer: default;
-}
-.meta .category {
-  color: gray;
-}
-.meta .category:hover {
-  color: black; 
+
+  &:hover {
+    pointer: default;
+  }
+
+  &.category {
+    color: gray;
+  }
+  
+  & .category:hover {
+    color: black; 
+  }
 }
 .content {
   float: left;
@@ -222,14 +319,6 @@ p > code {
 }
 
 
-#main .post {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 2% 15% 0 15%;
-  @include box-sizing(border-box);
-}
 
 .post {
   .title {
@@ -264,55 +353,4 @@ p > code {
   font-weight: 100;
 }
 
-.post-nav {
-  width: 100%;
-  height: 80px;
-  float: left;
-  
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin:0;
-  padding: 0;
-}
 
-.post-nav li {
-  width: 50%;
-  height: 100%;
-  float: left;
-  background: white;
-  padding-top: 0.8em;
-  border-top: 1px solid #eee;;
-  opacity: 0.8;
-  @include box-sizing(border-box);
-  @include transition(all, 0.2s, ease-in-out);
-}
-.post-nav li:hover {
-  color: white;
-  opacity: 1;
-  background:rgb(31, 189, 202) ;
-  @include transition(all, 0.2s, ease-in-out);
-}
-.post-nav li:hover .title {
-  color: white;
-  @include transition(all, 0.2s, ease-in-out);
-}
-
-.post-nav small {
-  font-style: italic;
-  font-size: 0.8em;
-  display: block;
-  width: 100%;
-}
-.post-nav .previous, 
-.post-nav .next {
-  font-size: 1.1em;    
-}
-.post-nav .previous {
-  text-align: left;
-  padding-left: 2em; 
-}
-.post-nav .next {
-  text-align: right;
-  padding-right: 2em;  
-}

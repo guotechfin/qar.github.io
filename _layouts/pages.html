@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <meta chartset="UTF-8">
+  <meta charset="utf-8" />
   <title>{{ page.title }}</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
@@ -21,31 +21,36 @@
 
 <body>
 
+<!-- nav zone -->
+<div id="navbar">
+  <ul class="nav">
+    <li><a href="/">Blog</a></li>
+  </ul>
+  <ul class="footnote">
+    <li>what's life without whimsy</li>       
+  </ul>
+</div>
+
+<!-- main content -->
 <div id="wrapper">
   <div id="wrapper-inner">
-    <!-- nav zone -->
-    <div id="navbar">
-      <ul class="nav">
-        <li><a href="/">Blog</a></li>
-      </ul>
-      <ul class="footnote">
-        <li>what's life without whimsy</li>       
-      </ul>
-    </div>
-    
     {{ content }}
-
   </div><!-- End of #wrapper-inner -->
 </div><!-- End of #wrapper -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+<!-- Scripts -->
+<script src="{{ site.url }}/js/script.js"></script>
+
+<!-- Google Analytics Track Code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-53444396-1', 'auto');
     ga('send', 'pageview');
+</script>
 
-  </script>
 </body>
 </html>
