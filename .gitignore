@@ -4,3 +4,9 @@ _site
 
 # NodeJS local modules
 node_modules
+
+# sass cache file
+.sass-cache
+
+# all hidden files
+.*

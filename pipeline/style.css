@@ -1,0 +1,233 @@
+@-webkit-keyframes flow-horizontal {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@-webkit-keyframes flow-vertical {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: fixed;
+  overflow: hidden;
+}
+
+.pipe {
+  position: absolute;
+  overflow: hidden;
+  background: white;
+}
+.pipe .water {
+  background-color: #f05c93;
+  position: absolute;
+}
+.pipe.top {
+  width: 50px;
+  border-right: 2px solid #90e9ff;
+  border-bottom: none;
+  border-left: 2px solid #90e9ff;
+}
+.pipe.top .water {
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+.pipe.bottom {
+  width: 50px;
+  border-top: none;
+  border-right: 2px solid #90e9ff;
+  border-bottom: none;
+  border-left: 2px solid #90e9ff;
+}
+.pipe.bottom .water {
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+}
+.pipe.left {
+  height: 50px;
+  border-top: 2px solid #90e9ff;
+  border-right: none;
+  border-bottom: 2px solid #90e9ff;
+  border-left: none;
+}
+.pipe.left .water {
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.pipe.right {
+  height: 50px;
+}
+.pipe.right .water {
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.pipe.to-bottom {
+  border-right: 2px solid #90e9ff;
+}
+.pipe.to-right {
+  border-radius: 0 0 0 50px;
+  border-bottom: 2px solid #90e9ff;
+}
+.pipe.from-left {
+  border-radius: 0 0 50px 0;
+  border-bottom: 2px solid #90e9ff;
+}
+.pipe.top-join {
+  border-right: 2px solid #90e9ff;
+  border-top: 2px solid #90e9ff;
+  border-left: 2px solid #90e9ff;
+  border-radius: 50px 50px 0 0;
+  border-bottom: 2px solid #90e9ff;
+}
+.pipe.top-join .water {
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.stage-1 {
+  z-index: 10000;
+  top: 100px;
+  left: 0px;
+  width: 200px;
+  border-radius: 0 50px 0 0;
+}
+.stage-1 .water {
+  z-index: 9999;
+  -webkit-animation: flow-horizontal;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.stage-2 {
+  z-index: 10001;
+  top: 152px;
+  left: 148px;
+  height: 200px;
+}
+.stage-2 .water {
+  z-index: 9997;
+  -webkit-animation: flow-vertical;
+  -webkit-animation-delay: 0.4s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.stage-3 {
+  top: 300px;
+  left: 200px;
+  height: 50px;
+  width: 10px;
+  border-right: none;
+  border-left: none;
+  background: white;
+  z-index: 10003;
+}
+.stage-3 .water {
+  z-index: 10005;
+  -webkit-animation: flow-horizontal;
+  -webkit-animation-delay: 0.8s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 0.02s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.stage-4 {
+  top: 152px;
+  left: 208px;
+  border-right: 2px solid #90e9ff;
+  border-left: 2px solid #90e9ff;
+  border-top: 2px solid transparent;
+  height: 200px;
+  background: white;
+  z-index: 10002;
+}
+.stage-4 .water {
+  z-index: 10001;
+  -webkit-animation: flow-vertical;
+  -webkit-animation-delay: 0.82s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.stage-5 {
+  top: 100px;
+  left: 208px;
+  height: 50px;
+  width: 400px;
+  background: white;
+  z-index: 10001;
+}
+.stage-5 .water {
+  z-index: 10092;
+  -webkit-animation: flow-horizontal;
+  -webkit-animation-delay: 1.22s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.stage-6 {
+  top: 152px;
+  left: 558px;
+  height: 200px;
+  width: 50px;
+  background: white;
+  z-index: 10012;
+}
+.stage-6 .water {
+  z-index: 10013;
+  -webkit-animation: flow-vertical;
+  -webkit-animation-delay: 2.02s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.stage-7 {
+  top: 350px;
+  left: 558px;
+  height: 50px;
+  width: 2000px;
+  border-left: 2px solid #90e9ff !important;
+  border-right: 2px solid #90e9ff !important;
+  border-radius: 0 0 50px 50px;
+  background: white;
+  z-index: 10011;
+}
+.stage-7 .water {
+  -webkit-animation: flow-horizontal;
+  -webkit-animation-delay: 2.42s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+/*# sourceMappingURL=style.css.map */

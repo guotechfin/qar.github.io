@@ -1,0 +1,348 @@
+@-webkit-keyframes flow-horizontal {
+  from {
+    width: 0%;
+  }
+  
+  to {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes flow-vertical {
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@mixin flow-horizontal($delay, $duration) {
+    -webkit-animation: flow-horizontal;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@mixin flow-vertical($delay, $duration) {
+    -webkit-animation: flow-vertical;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// time consume while moving 1px
+$speed: 0.002s;
+$pipeWidth: 50px;
+$pipeColor: rgb(144, 233, 255);
+$pipeUnit: 20px;
+
+// horizontal
+$stage1Top: 100px;
+$stage1Left: 0px;
+$stage1Length: $pipeUnit * 10;
+$stage1ZIndex: 10000;
+$stage1Duration: $speed * strip-units($stage1Length);
+
+// vertical
+$stage2Top: $stage1Top + $pipeWidth + 2px; // 2px is the border width
+                                           // stage-2 need to overlap stage-1 by 1-border width
+$stage2Left: $stage1Length - $pipeWidth - 2px;
+$stage2Length: $pipeUnit * 10;
+$stage2ZIndex: 10000 + 1;
+$stage2Duration: $speed * strip-units($stage2Length);
+
+// honrizontal
+$stage3Top: $stage2Top + $stage2Length - $pipeWidth - 2px;
+$stage3Left: $stage2Left + $pipeWidth + 2px;
+$stage3Length: $pipeUnit * 0.5; 
+$stage3ZIndex: $stage2ZIndex + 2;
+$stage3Duration: $speed * strip-units($stage3Length);
+
+// vertical
+$stage4Top: $stage2Top;
+$stage4Left: $stage3Left + $stage3Length - 2px;
+$stage4Length: $stage2Length;
+$stage4ZIndex: $stage3ZIndex - 1;
+$stage4Duration: $speed * strip-units($stage4Length);
+
+// horizontal
+$stage5Top: $stage4Top - $pipeWidth - 2px;
+$stage5Left: $stage4Left;
+$stage5Length: $pipeUnit * 20;
+$stage5Duration: $speed * strip-units($stage5Length);
+
+$stage6Top: $stage5Top + $pipeWidth + 2px;
+$stage6Length: $pipeUnit * 10;
+$stage6Left: $stage5Left + $stage5Length - $pipeWidth;
+$stage6Duration: $speed * strip-units($stage6Length);
+$stage6ZIndex: $stage4ZIndex + 10;
+
+$stage7Top: $stage6Top + $stage6Length - 2px;
+$stage7Left: $stage6Left;
+$stage7Length: $pipeUnit * 100;
+$stage7ZIndex: $stage6ZIndex - 1;
+$stage7Duration: $speed * strip-units($stage7Length);
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: fixed; 
+  overflow: hidden;
+}
+
+// general pipe 
+.pipe {
+  position: absolute;
+  overflow: hidden;
+  background: white;
+
+  .water {
+    background-color: #f05c93;
+    position: absolute;
+  }
+
+  &.top {
+    width: $pipeWidth;
+    border-right: 2px solid $pipeColor;
+    border-bottom: none;
+    border-left: 2px solid $pipeColor;
+    .water {
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+  &.bottom {
+    width: $pipeWidth;
+    border-top: none;
+    border-right: 2px solid $pipeColor;
+    border-bottom: none;
+    border-left: 2px solid $pipeColor;
+    .water {
+      width: 100%;
+      height: 0;
+      bottom: 0;  
+      left: 0;
+    }
+  }
+  &.left {
+    height: $pipeWidth;
+    border-top: 2px solid $pipeColor;
+    border-right: none;
+    border-bottom: 2px solid $pipeColor;
+    border-left: none ;
+    .water {
+      width: 0;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  &.right {
+    height: $pipeWidth;
+    .water {
+      width: 0;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &.to-bottom {
+    border-right: 2px solid $pipeColor; 
+  }
+  &.to-right {
+    border-radius: 0 0 0 $pipeWidth;
+    border-bottom: 2px solid $pipeColor;
+  }
+  &.from-left {
+    border-radius: 0 0 $pipeWidth 0;
+    border-bottom: 2px solid $pipeColor;
+  }
+
+  &.top-join {
+    border-right: 2px solid $pipeColor;
+    border-top: 2px solid $pipeColor;
+    border-left: 2px solid $pipeColor;
+    border-radius: $pipeWidth $pipeWidth 0 0;
+    border-bottom: 2px solid $pipeColor;
+    .water {
+      width: 0;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.stage-1 {
+  z-index: $stage1ZIndex;
+  top:     $stage1Top;  
+  left:    $stage1Left;
+  width:   $stage1Length;
+  border-radius: 0 $pipeWidth 0 0;
+  .water {
+    z-index: 9999;
+    @include flow-horizontal(0s, $stage1Duration);
+  }
+}
+
+.stage-2 {
+  z-index: $stage2ZIndex;
+  top: $stage2Top;
+  left: $stage2Left;
+  height: $stage2Length;
+  .water {
+    z-index: 9997;
+    @include flow-vertical($stage1Duration, $stage2Duration);
+  }
+}
+
+.stage-3 {
+  top: $stage3Top;
+  left: $stage3Left;
+  height: $pipeWidth;
+  width: $stage3Length;
+  border-right: none;
+  border-left: none;
+  background: white;
+  z-index: $stage3ZIndex;
+  .water {
+    z-index: $stage3ZIndex + 2;
+    @include flow-horizontal($stage1Duration + $stage2Duration, $stage3Duration);
+  }
+}
+
+.stage-4 {
+  top: $stage4Top;
+  left: $stage4Left;
+  border-right: 2px solid $pipeColor;
+  border-left: 2px solid $pipeColor;
+  border-top: 2px solid transparent;
+  height: $stage4Length;
+  background: white;
+  z-index: $stage4ZIndex;
+  .water {
+    z-index: $stage4ZIndex - 1;
+    @include flow-vertical($stage1Duration + $stage2Duration + $stage3Duration, $stage4Duration);
+  }
+}
+
+.stage-5 {
+  top: $stage5Top;
+  left: $stage5Left;
+  height: $pipeWidth;
+  width: $stage5Length;
+  background: white;
+  z-index: $stage4ZIndex - 1;
+  .water {
+    z-index: $stage4ZIndex + 90;
+    @include flow-horizontal($stage1Duration + $stage2Duration + $stage3Duration + $stage4Duration, $stage5Duration);
+  }
+}
+
+.stage-6 {
+  top: $stage6Top;
+  left: $stage6Left;
+  height: $stage6Length;
+  width: $pipeWidth;
+  background: white;
+  z-index: $stage6ZIndex;
+  .water {
+    z-index: $stage6ZIndex + 1;
+    @include flow-vertical($stage1Duration + $stage2Duration + $stage3Duration + $stage4Duration + $stage5Duration, $stage6Duration);
+  }
+}
+
+.stage-7 {
+  top: $stage7Top;
+  left: $stage7Left;
+  height: $pipeWidth;
+  width: $stage7Length;
+  border-left: 2px solid $pipeColor !important;
+  border-right: 2px solid $pipeColor !important;
+  border-radius: 0 0 $pipeWidth $pipeWidth;;
+  background: white;
+  z-index: $stage7ZIndex;
+  .water {
+    @include flow-horizontal($stage1Duration + $stage2Duration + $stage3Duration + $stage4Duration + $stage5Duration + $stage6Duration, $stage7Duration);
+  }
+}
+
+// 我想要写一个弧形
+  //.arc {
+  //  height: 100px;
+  //  width: 100px;
+  //  top: 200px;
+  //  left: 300px;
+  //  background: white;
+  //  border-radius: 50px;
+  //  position: absolute;
+  //
+  //  border-top: 2px solid transparent;
+  //  border-right: 2px solid rgb(144, 233, 255);
+  //  border-bottom: 2px solid transparent;
+  //  border-left: 2px solid transparent;
+  //  -webkit-transform: rotate(-45deg);
+  //  &.tl {
+  //
+  //  border-top: 2px solid rgb(144, 233, 255);
+  //  border-right: 2px solid rgb(144, 233, 255);
+  //  border-bottom: 2px solid rgb(144, 233, 255);
+  //  border-left: 2px solid rgb(144, 233, 255);
+  //  }
+  //
+  //  &.tr {
+  //
+  //  }
+  //
+  //  &.bt {
+  //
+  //  }
+  //  
+  //  &.bl {
+  //
+  //  }
+  //  &:before {
+  //    z-index: 50;
+  //    display: block;
+  //    position: absolute;
+  //    content: '';
+  //    height:200px;
+  //    width: 50px;
+  //    background: white;    
+  //    top: -61px;
+  //    -webkit-transform: rotate(45deg);
+  //  }
+  //
+  //  &:after {
+  //    display: block;
+  //    position: absolute;
+  //    content: '';
+  //    height: 100px;
+  //    width: 100px;
+  //    top: 70px;
+  //    background: white;
+  //    -webkit-transform: rotate(45deg);
+  //  }
+  //  .water {
+  //    height: 100px;
+  //    width: 100px;
+  //    border-radius: 50px;
+  //  }
+  //}
