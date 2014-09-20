@@ -14,4 +14,4 @@ sass:
   #  - compact：简洁格式的css代码
   #  - compressed：压缩后的css代码
 
-exclude: [deploy.sh, node_modules, power.js]
+exclude: [node_modules, power.js]
