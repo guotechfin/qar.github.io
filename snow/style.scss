@@ -1,0 +1,70 @@
+@-moz-keyframes spin { 
+  100% {
+     -moz-transform: rotate(360deg);
+  } 
+}
+
+@-webkit-keyframes spin {
+   100% {
+     top: 110%;
+     -webkit-transform: rotate(360deg); 
+   } 
+}
+
+@keyframes spin { 
+   100% { 
+     -webkit-transform: rotate(360deg);
+             transform:rotate(360deg); 
+   } 
+}
+
+@mixin spin() {
+  -webkit-animation:spin 15s linear infinite;
+     -moz-animation:spin 15s linear infinite;
+          animation:spin 15s linear infinite;
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0; 
+}
+
+#canvas {
+  height: 100%;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  background-color: rgb(108, 123, 136);
+  position: relative;
+}
+
+.snow {
+  position:absolute;
+  top: -160px;
+  left: 0;
+  background-image: url(snow.png);
+  background-repeat: no-repeat;
+  @include spin();
+
+  &.small {
+    height: 2em;
+    width: 2em;
+    background-size: 2em 2em;
+  }
+
+  &.large {
+    height: 5em;
+    width: 5em;
+    background-size: 5em 5em;
+    -webkit-transition: all 0.2s ease-in;
+       -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+  }
+}
