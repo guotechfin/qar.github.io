@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Flags</title>
+  <style>
+    #flags {
+      width: 500px;
+    }
+
+    #flags li{
+      position: relative;
+      float: left;
+      top: 0;
+      left: 0;
+
+      width: 30px;
+      height: 30px;
+      margin: 2px;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 4px;
+      background: green;
+
+      list-style: none;
+
+      box-shadow:  8px 8px 0 rgba(0, 0, 0, 0.5);
+
+      /* Skew */
+      -webkit-transform: skew(-23deg,0deg); /* Chrome, Safari, Opera */
+          -ms-transform: skew(-23deg,0deg); /* IE 9 */
+              transform: skew(-23deg,0deg);
+
+      /* Animation */
+      -webkit-animation: pop 1s infinite;
+              animation: pop 1s infinite;
+
+      -webkit-animation-timing-function: cubic-bezier(0.5, 0.2, 0.3, 1.0);
+
+    }
+
+    /* Chrome, Safari, Opera */
+    @-webkit-keyframes pop
+    {
+      0% {top: 0px; }
+      50% {top: 20px;}
+      100% {top: 0px;}
+    }
+
+    /* Standard syntax */
+    @keyframes pop
+    {
+      0% {top: 0px;}
+      50% {top: 20px;}
+      100% {top: 0px;}
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="flags"></ul>
+  <script>
+    var flagNumbers = 72;
+    var flagsElement = document.getElementById("flags");
+    for (var i=0; i<flagNumbers; i++) {
+      var flag = document.createElement("li");
+      flag.style.animationDelay = i * 0.0885 % 1 + 's';
+      flag.style['-webkit-animation-delay'] = i * 0.0885 % 1 + 's';
+      flagsElement.appendChild(flag);
+    }
+  </script>
+</body>
+</html>
