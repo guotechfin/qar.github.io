@@ -6,6 +6,6 @@
 
 * [Wave](http://qiaoanran.com/pages/wave)
 
-* [Flat Surface Shader](http://qiaoanran.com/pages/ffs)
+* [Flat Surface Shader](http://qiaoanran.com/pages/fss)
 
 
