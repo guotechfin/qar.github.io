@@ -8,6 +8,8 @@
 
 * [Flags](http://qiaoanran.com/pages/flags)
 
+* [Puzzle Game](http://qiaoanran.com/pages/puzzle)
+
 * [Flat Surface Shader](http://qiaoanran.com/pages/fss)
 
 
