@@ -38,6 +38,19 @@ body {
   }
 }
 
+.quotes-wrapper {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}
+
 .quotes {
   display: inline-block;
   vertical-align: middle;

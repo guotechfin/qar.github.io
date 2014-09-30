@@ -4,21 +4,110 @@
   <meta charset="utf-8">
   <title>Quotes</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=0.6">
+  <link type="text/css" rel="stylesheet" href="http://cdn.staticfile.org/jquery-fullPage/1.7.5/jquery.fullPage.css">
   <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!-- Flat Surface Shader -->
   <div id="container" class="container">
     <div id="output" class="container">
     </div>
   </div>
 
-  <div id="wrapper">
-    <div class="quotes">
-      <p class="text">Trust is like a mirror, you can fix it if it's broken, but you can still see the crack in that mother fucker's reflection.</p>
-      <p class="origin">Lady GaGa</p>
-    </div>
+  <!-- Fullpage scroll -->
+  <div id="fullpage">
+    <div class="section active"></div>
   </div>
+
+  <!-- Template for fullpage scroll slide -->
+  <script type="text/template" id="slide-template">
+    <% _.map(quotes, function(quote) { %>
+      <div class="slide">
+        <div class="quotes-wrapper">
+        <div class="quotes">
+          <p class="text"><%= quote.text %></p>
+          <p class="origin"><%= quote.origin %></p>
+        </div>
+        </div>
+      </div>
+    <% }); %>
+  </script>
+
+  <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+  <script src="http://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js"></script>
+  <script src="http://cdn.staticfile.org/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="http://cdn.staticfile.org/jquery-fullPage/1.7.5/jquery.fullPage.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    $(document).ready(function() {
+      var tmpl = _.template($('#slide-template').html());
+
+      var quotes = [
+        {
+          'text': "Some women choose to follow men, and some women choose to follow their dreams. If you're wondering which way to go, remember that your career will never wake up and tell you that it doesn't love you anymore.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "Trust is like a mirror, you can fix it if it's broken, but you can still see the crack in that mother fucker's reflection.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "I had a boyfriend who told me I’d never succeed, never be nominated for a Grammy, never have a hit song, and that he hoped I’d fail. I said to him, ‘Someday, when we’re not together, you won’t be able to order a cup of coffee at the fucking deli without hearing or seeing me.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "Don't you ever let a soul in the world tell you that you can't be exactly who you are.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "Well, that's your opinion, isn't it? And I'm not about to waste my time trying to change it.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "You have to be unique, and different, and shine in your own way.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "Love is like a brick. You can build a house, or you can sink a dead body.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "They can't scare me, if I scare them first.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "Do not allow people to dim your shine because they are blinded. Tell them to put on some sunglasses, cuz we were born this way bitch!",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "When you make music or write or create, it's really your job to have mind-blowing, irresponsible, condomless sex with whatever idea it is you're writing about at the time. ",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "I want the deepest, darkest, sickest parts of you that you are afraid to share with anyone because I love you that much.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "Do you know the feeling, when your heart is so hurt, that you could feel the blood dripping?",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "And now, I'm just trying to change the world, one sequin at a time.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "If you dont have any shadows you're not in the light",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "I used to walk down the street like I was a fucking star... I want people to walk around delusional about how great they can be - and then to fight so hard for it every day that the lie becomes the truth.",
+          'origin': 'Lady GaGa'
+        }, {
+          'text': "I'm a free bitch baby",
+          'origin': 'Lady GaGa'
+        }
+      ];
+
+      $('#fullpage .section.active').html(tmpl({'quotes': quotes}));
+
+      $('#fullpage').fullpage({
+        // 过渡效果持续时间，单位毫秒
+        'scrollingSpeed': 360,
+
+        // 过渡效果 除了 linear 和 swing，其他的需要UI库支持
+        'easing': 'linear',
+
+        // 横向滑动箭头的颜色
+        'controlArrowColor': 'transparent'
+      });
+    });
+  </script>
 </body>
 </html>
