@@ -1,32 +1,42 @@
+@font-face {
+  font-family: "Gloria Hallelujah";
+  src: url("http://localhost:4000/pages/quotes/GloriaHallelujah.ttf") format("truetype");
+}
 html, body {
   margin: 0;
   border: 0;
   padding: 0;
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+}
 
 body {
   background: #111118;
-  margin: 0; }
+  margin: 0;
+  font-family: "Gloria Hallelujah";
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+}
 
 .container {
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: -9999; }
+  z-index: -9999;
+}
 
 #wrapper {
   height: 100%;
   width: 100%;
   background: transparent;
-  text-align: center; }
-  #wrapper:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%; }
+  text-align: center;
+}
+#wrapper:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
 
 .quotes {
   display: inline-block;
@@ -36,15 +46,20 @@ body {
   max-width: 1000px;
   font-size: 2.3em;
   color: #d3eaf1;
-  word-spacing: 0.08em; }
-  .quotes p.text {
-    text-align: left;
-    line-height: 1.5em; }
-  .quotes p.origin {
-    text-align: right; }
+  word-spacing: 0.08em;
+}
+.quotes p.text {
+  text-align: left;
+  line-height: 1.5em;
+}
+.quotes p.origin {
+  text-align: right;
+}
 
 @media (max-width: 1000px) {
   .quotes {
-    max-width: 90%; } }
+    max-width: 90%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
