@@ -2,7 +2,6 @@
 ---
 
 // Font
-$bodyfont : serif;
 $postFontColor: #555555;
 $postLinkColor: rgb(33, 103, 250);
 
@@ -33,6 +32,7 @@ $title-color: #565656;
 html {
   height: 100%;
   width: 100%;
+  overflow-y: hidden;
 }
 
 body {
@@ -41,11 +41,12 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: $bodyfont;
+  font-family: serif;
+
 }
 
 div {
-  -webkit-overflow-scrolling: touch;
+  //-webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -89,7 +90,7 @@ ul {
     width: 100%;
     height: auto;
     margin-right: 15%;
-    margin-top: 30%; 
+    margin-top: 30%;
 
     li {
       float: right;
@@ -127,7 +128,6 @@ ul {
   width: 80%;
   margin-left: 20%;
   height: 100%;
-  overflow: scroll;
   @media (max-width: 960px) {
     width: 100%;
     margin-left: 0;
@@ -213,18 +213,18 @@ ul {
       width: 100%;
     }
     .previous, .next {
-      font-size: 1.1em;    
+      font-size: 1.1em;
     }
     .previous {
       text-align: left;
-      padding-left: 2em; 
+      padding-left: 2em;
       @media (max-width: 960px) {
         padding-left: 0;
       }
     }
     .next {
       text-align: right;
-      padding-right: 2em;  
+      padding-right: 2em;
       @media (max-width: 960px) {
         padding-right: 0;
       }
@@ -293,9 +293,9 @@ ul {
   &.category {
     color: gray;
   }
-  
+
   & .category:hover {
-    color: black; 
+    color: black;
   }
 }
 .content {
