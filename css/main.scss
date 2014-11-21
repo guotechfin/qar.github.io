@@ -32,7 +32,6 @@ $title-color: #565656;
 html {
   height: 100%;
   width: 100%;
-  overflow-y: hidden;
 }
 
 body {
@@ -42,7 +41,12 @@ body {
   height: 100%;
   width: 100%;
   font-family: serif;
-
+  // hide scrollbar in webkit-based browsers (Chrom and Safari)
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+  // hide scrollbar in IE10
+  -ms-overflow-style: none;
 }
 
 div {
