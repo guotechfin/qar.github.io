@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mirror</title>
+  <style type="text/css">
+    body {
+      height: 100%;
+      width: 100%;
+      background: black;
+      overflow: hidden;
+      margin: 0;
+      padding:0;
+    }
+
+    video {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <video />
+  <script>
+    navigator.getUserMedia = navigator.getUserMedia ||
+      navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+    var video = document.getElementsByTagName('video')[0];
+
+    navigator.getUserMedia({'video': true}, function(localMediaStream) {
+      video.src = window.URL.createObjectURL(localMediaStream);
+      video.play();
+    }, function(err) {
+    });
+  </script>
+</body>
+</html>
