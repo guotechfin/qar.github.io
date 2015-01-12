@@ -1,18 +1,18 @@
 ---
-layout: pages
+layout: default
 ---
 
 <div id="main">
   <div class="post">
     <h1 class="title">{{ page.title }}</h1>
-  
+
     <small class="meta">
       <span class="timestamp">{{ page.date | date_to_long_string }}</span>
       {% for cate in page.categories %}
       <a href="/categories/{{ cate }}/"><span class="category">{{ cate }}</span></a>
       {% endfor %}
     </small>
-  
+
     <div class="content">
       {{ content }}
     </div>

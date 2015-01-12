@@ -1,20 +1,20 @@
 ---
-layout: pages
+layout: default
 title: Anran's Life
 ---
 
-<ul id="items">
-{% for post in site.posts %}
-  <li> 
-    <a href="{{ post.url }}">
-      <h2 class="title">{{ post.title }}</h2>
-      <small class="meta">
-        <span class="timestamp">{{ post.date | date_to_long_string }}</span>&nbsp;in&nbsp;
-        {% for cate in post.categories %}
-        <a href="/categories/{{ cate }}/"><span class="category">{{ cate }}</span></a>
-        {% endfor %}
-      </small>
-    </a>
-  </li>
-{% endfor %}
+<ul class="posts">
+
+  <!-- using the split filter -->
+  {% for post in site.posts limit:10 %}
+   <li class="post-preview">
+     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+     <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+     {{ post.content | split:'<!-- more -->' | first }}
+     {% if post.content contains '<!-- more -->' %}
+        <a href="{{ post.url }}" class="read-more">阅读全文</a>
+     {% endif %}
+   </li>
+  {% endfor %}
+
 </ul>

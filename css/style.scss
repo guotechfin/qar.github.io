@@ -1,0 +1,156 @@
+---
+---
+
+// SASS MIXINS
+@mixin box-sizing($property) {
+  -webkit-box-sizing: $property;
+     -moz-box-sizing: $property;
+       -o-box-sizing: $property;
+          box-sizing: $property;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    width: 100%;
+    height: 100%;
+    background: #E3E3E3;
+    text-align: center;
+
+    overflow-x: hidden;
+}
+
+.hero {
+    background: url('/img/hero.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 20em;
+    @include box-sizing(border-box);
+    text-align: center;
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 0;
+        margin-right: 0.25em;
+    }
+
+    & > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+}
+.navbar {
+    width: 100%;
+    height: 3em;
+    background: #444347;
+    padding: 0;
+    margin: 0;
+
+    li {
+        float: left;
+        height: 100%;
+        line-height: 3em;
+        vertical-align: middle;
+        text-align: center;
+        min-width: 6em;
+        width: auto;
+        color: white;
+        @include box-sizing(border-box);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    li:not(:last-child) {
+        border-right: 1px solid #EEE;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+.post {
+    .content {
+        text-align: left;
+    }
+}
+
+.posts {
+    margin: 0;
+    padding: 2em 8em;
+    @include box-sizing(border-box);
+
+    .post-preview {
+        margin-bottom: 5em;
+        text-align: left;
+        padding-bottom: 1em;
+        border-bottom: 1px solid #EEE;
+        @include box-sizing(border-box);
+    }
+
+    h1, h2, h3, h4 {
+        color: black;
+    }
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    @include box-sizing(border-box);
+}
+
+.read-more {
+    font-style: italic;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+// desktop
+@media screen and (min-width: 960px) {
+    #main {
+        max-width: 960px;
+        width: 90%;
+        background: white;
+        margin: 0 auto;
+    }
+
+}
+
+// mobile
+@media screen and (max-width: 960px) {
+    #main {
+        width: 100%;
+        background: white;
+        margin: 0 auto;
+    }
+
+    .posts {
+        padding: 1em;
+    }
+
+    .hero {
+        padding: 2em 1em;
+    }
+}
+
+
