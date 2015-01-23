@@ -76,6 +76,7 @@ body {
 }
 
 .post {
+    padding: 2em 8em;
     .content {
         text-align: left;
     }
@@ -144,7 +145,8 @@ a {
         margin: 0 auto;
     }
 
-    .posts {
+
+    .posts , .post{
         padding: 1em;
     }
 
