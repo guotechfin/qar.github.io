@@ -22,6 +22,7 @@ body {
     overflow-x: hidden;
 
     font-family:  'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+    font-size: 15px;
 }
 
 .hero {
@@ -100,6 +101,10 @@ body {
     h1, h2, h3, h4 {
         color: black;
     }
+}
+
+.preview-title {
+    font-weight: 400;
 }
 
 .footer {
