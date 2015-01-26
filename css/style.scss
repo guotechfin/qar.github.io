@@ -200,6 +200,7 @@ a {
     height: auto;
     padding: 1em;
     color: #686868;
+    font-variant: small-caps;
     @include box-sizing(border-box);
 }
 
@@ -212,11 +213,13 @@ a {
     & > * {
         padding-left: 1em;
         font-size: 0.8rem;
+        color: #777;
     }
 
 }
 .archives-caption {
     margin: 1rem 0;
+    font-weight: 100;
 }
 // desktop
 @media screen and (min-width: 960px) {
