@@ -30,7 +30,15 @@ body {
 
 ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
+h1, h2, h3, h4, h5, h6,
+li {
+    text-align: left;
+}
+
 
 img {
     max-width: 100%;
@@ -158,6 +166,7 @@ a {
 .posts {
     margin: 0;
     padding: 2em;
+    border-right: 1px solid #EEE;
     @include box-sizing(border-box);
 
     .post-preview {
@@ -173,6 +182,15 @@ a {
     }
 }
 
+#main {
+    background: white;
+    margin-bottom: 5em;
+}
+
+.aside {
+    margin: 0;
+    padding: 2em;
+}
 .preview-title {
     font-weight: 400;
 }
@@ -181,6 +199,7 @@ a {
     width: 100%;
     height: auto;
     padding: 1em;
+    color: #686868;
     @include box-sizing(border-box);
 }
 
@@ -188,9 +207,20 @@ a {
     font-style: italic;
 }
 
+.archives {
+    margin-bottom: 2rem;
+    & > * {
+        padding-left: 1em;
+        font-size: 0.8rem;
+    }
+
+}
+.archives-caption {
+    margin: 1rem 0;
+}
 // desktop
 @media screen and (min-width: 960px) {
-    #main {
+    #wrapper {
         max-width: 960px;
         width: 90%;
         background: white;
@@ -201,7 +231,7 @@ a {
 
 // mobile
 @media screen and (max-width: 960px) {
-    #main {
+    #wrapper {
         width: 100%;
         background: white;
         margin: 0 auto;
