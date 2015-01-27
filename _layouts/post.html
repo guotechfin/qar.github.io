@@ -2,38 +2,18 @@
 layout: default
 ---
 
-  <div class="post">
-    <h1 class="title">{{ page.title }}</h1>
+<div class="post">
+  <h1 class="title">{{ page.title }}</h1>
 
-    <small class="meta">
-      <span class="timestamp">{{ page.date | date_to_long_string }}</span>
-      {% for cate in page.categories %}
-      <a href="/categories/{{ cate }}/"><span class="category">{{ cate }}</span></a>
-      {% endfor %}
-    </small>
-
-    <div class="content">
-      {{ content }}
-    </div>
+  <div class="content">
+    {{ content }}
   </div>
 
+  <small class="meta">
+    <span class="timestamp">{{ page.date | date_to_long_string }}</span>
+    {% for cate in page.categories %}
+    <a href="/categories/{{ cate }}/"><span class="category">{{ cate }}</span></a>
+    {% endfor %}
+  </small>
 
-<div id="footer">
-  <div id="footer-inner">
-    <ul class="post-nav">
-      <li class="previous">
-        {% if page.previous %}
-        <small>The previous post is</small>
-        <a href="{{ page.previous.url }}"><span class="title">{{ page.previous.title }}</span></a>
-        {% endif %}
-      </li>
-      <li class="next">
-        {% if page.next %}
-        <small>The next post is</small>
-        <a href="{{ page.next.url }}"><span class="title">{{ page.next.title }}</span></a>
-        {% endif %}
-      </li>
-    </ul>
-  </div>
 </div>
-

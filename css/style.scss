@@ -155,11 +155,26 @@ a {
 
 .post {
     padding: 2em 8em;
+    border-bottom: 1px solid #eee;
+
     .content {
         text-align: left;
     }
+
+    .title {
+        font-weight: 100;
+        font-style: normal;
+    }
+    .meta {
+        display: block;
+        text-align: left;
+        font-style: italic;
+    }
 }
 
+.post-nav {
+    padding: 2em 8em;
+}
 /*----------------------------------------------------------------------
                             layout
 ----------------------------------------------------------------------*/
