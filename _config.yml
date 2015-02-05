@@ -1,3 +1,11 @@
+#
+# All the variables in this configuration file will be available throught the "site" variable.
+# More detail in document: http://jekyllrb.com/docs/variables/
+#
+
+# example: http://mysite.com
+url: http://qiaoanran.com
+
 name: Anran's Life
 markdown: redcarpet
 highlighter: pygemnts
