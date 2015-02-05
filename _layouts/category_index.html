@@ -1,5 +1,5 @@
 ---
-layout: pages
+layout: default
 title: Anran's Life
 ---
 
@@ -8,7 +8,7 @@ title: Anran's Life
 </div>
 <ul id="items">
 {% for post in site.categories.[page.category] %}
-  <li> 
+  <li>
     <a href="{{ post.url }}">
       <h2 class="title">{{ post.title }}</h2>
       <small class="meta">
