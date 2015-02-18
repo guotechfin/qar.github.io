@@ -9,11 +9,8 @@
   {% for category in page.categories %}
   <meta property="article:tag" content="{{ category }}" />
   {% endfor %}
-
   {% if page.description %}
   <meta name="description" content="{{ page.description | truncatewords: 200 | strip_newlines | escape_once }}" />
-  {% else %}
-  <meta name="description" content="{{ content | strip_html | truncatewords: 200 | strip_newlines | escape_once }}" />
   {% endif %}
   <link type="text/css" rel="stylesheet" href="/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -26,6 +23,8 @@
 
     <ul class="navbar">
       <li><a href="/">首页</a></li>
+      <li><a href="/tags">标签</a></li>
+      <li><a href="/categories">分类</a></li>
     </ul>
 
     {{ content }}
