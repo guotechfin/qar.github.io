@@ -8,7 +8,7 @@ url: http://qiaoanran.com
 
 name: Anran's Life
 markdown: redcarpet
-highlighter: pygemnts
+highlighter: pygments
 safe: false
 
 # SASS configuration - Jekyll 2.0 or Highter Only
