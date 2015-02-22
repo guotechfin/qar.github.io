@@ -3,6 +3,7 @@ layout     : post
 title      : Do things right with Github
 date       : 2015-02-06 02:52:01
 categories :
+tags       : github things right
 ---
 
 I was staring at my github page, wondering why I created those open-source projects and was never expecting anyone to benefit from them.

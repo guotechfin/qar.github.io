@@ -3,6 +3,7 @@ layout     : post
 title      : 小猫 Power 的日常
 date       : 2014-09-12 18:04:38
 categories : Power
+tags       : cat 
 ---
 
 <!-- more -->
