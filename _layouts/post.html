@@ -1,36 +1,55 @@
----
-layout: default
----
+<!DOCTYPE html>
+<head>
+{% include head.html %}
+</head>
 
-<div class="size-12" id="main">
-  <div class="size-9 post">
-    <h1 class="title">{{ page.title }}</h1>
+<body>
+  <div id="wrapper">
+    {% include header.html %}
 
-    <div class="content">
-      {{ content }}
+    <div class="size-12" id="main">
+      <div class="size-9 post">
+        <h1 class="title">{{ page.title }}</h1>
+
+        <div class="content">
+          {{ content }}
+        </div>
+
+        <small class="meta">
+          <span class="timestamp">{{ page.date | date_to_long_string }}</span>
+          {% for cate in page.categories %}
+          <a href="/categories/{{ cate }}/"><span class="category">{{ cate }}</span></a>
+          {% endfor %}
+        </small>
+
+        {% if site.duoshuo_shortname && post.comments %}
+        <!-- 多说评论框 start -->
+        <div class="ds-thread" data-thread-key="{{ post.title }}" data-title="{{ post.title }}" data-url="{{ site.url }}{{ post.url }}"></div>
+        <!-- 多说评论框 end -->
+        {% endif %}
+
+      </div>
+
+      <div class="size-3 aside">
+        <div class="size-12">
+          {% for post in site.posts %}
+              {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
+              {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
+                  {% if month != nmonth %}
+                      {% if forloop.index != 1 %}</ul>{% endif %}
+                      <h4 class="archives-caption">{{ post.date | date: '%B %Y' | upcase }}</h4><ul class="archives">
+                  {% endif %}
+              <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </div>
+      </div>
     </div>
 
-    <small class="meta">
-      <span class="timestamp">{{ page.date | date_to_long_string }}</span>
-      {% for cate in page.categories %}
-      <a href="/categories/{{ cate }}/"><span class="category">{{ cate }}</span></a>
-      {% endfor %}
-    </small>
+    {% include footer.html %}
   </div>
 
-  <div class="size-3 aside">
-    <div class="size-12">
-      {% for post in site.posts %}
-          {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
-          {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
-              {% if month != nmonth %}
-                  {% if forloop.index != 1 %}</ul>{% endif %}
-                  <h4 class="archives-caption">{{ post.date | date: '%B %Y' | upcase }}</h4><ul class="archives">
-              {% endif %}
-          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </div>
-  </div>
+  {% include scripts.html %}
+</body>
+</html>
 
-</div>
 

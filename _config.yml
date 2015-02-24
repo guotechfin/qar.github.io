@@ -6,6 +6,12 @@
 # example: http://mysite.com
 url: http://qiaoanran.com
 
+# Duoshuo account
+duoshuo_shortname: qiaoanran
+
+# Google Analystic Number
+google_analystics: UA-53444396-1
+
 name: Anran's Life
 markdown: redcarpet
 highlighter: pygments
